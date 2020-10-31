@@ -2,9 +2,7 @@ cmake_minimum_required(VERSION 3.10)
 
 project(python-in-cpp)
 
-set(
-    PYTHON_EXECUTABLE "${CMAKE_HOME_DIRECTORY}/venv/Scripts/python.exe"
-    CACHE FILEPATH "python virtual environment executable")
+set(PYTHON_EXECUTABLE "${CMAKE_HOME_DIRECTORY}/venv/Scripts/python.exe")
 message(STATUS "PYTHON_EXECUTABLE is now: ${PYTHON_EXECUTABLE}") #DEBUG
 
 set(ENV{PYTHONPATH} "${CMAKE_HOME_DIRECTORY}/venv/Lib/site-packages")

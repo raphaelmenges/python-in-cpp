@@ -12,7 +12,6 @@ int main()
 	py::scoped_interpreter guard{};
 
 	py::module sys = py::module::import("sys");
-	// std::string s(CUSTOM_SYS_PATH);
 	sys.attr("path").attr("insert")(0, "C:\\Users\\Raphael\\Git\\python-in-cpp\\venv\\Lib\\site-packages");
 
 	py::print("Hello, World from Python!");
