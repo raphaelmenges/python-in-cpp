@@ -3,16 +3,12 @@ cmake_minimum_required(VERSION 3.10)
 project(python-in-cpp)
 
 set(PYTHON_EXECUTABLE "${CMAKE_HOME_DIRECTORY}/venv/Scripts/python.exe")
-message(STATUS "PYTHON_EXECUTABLE is now: ${PYTHON_EXECUTABLE}") #DEBUG
-
 set(ENV{PYTHONPATH} "${CMAKE_HOME_DIRECTORY}/venv/Lib/site-packages")
-message(STATUS "ENV{PYTHONPATH} is now: $ENV{PYTHONPATH}") #DEBUG
+set(ENV{PATH} "${CMAKE_HOME_DIRECTORY}/venv/Scripts/;${CMAKE_HOME_DIRECTORY}/venv/Lib")
 
-set(
-    ENV{PATH}
-    "${CMAKE_HOME_DIRECTORY}/venv/Scripts/;${CMAKE_HOME_DIRECTORY}/venv/Lib"
-)
-message(STATUS "PATH is now: $ENV{PATH}") #DEBUG
+message(STATUS "PYTHON_EXECUTABLE is now: ${PYTHON_EXECUTABLE}")
+message(STATUS "ENV{PYTHONPATH} is now: $ENV{PYTHONPATH}")
+message(STATUS "PATH is now: $ENV{PATH}")
 
 add_subdirectory(pybind11)
 
