@@ -23,3 +23,10 @@ add_subdirectory(pybind11)
 add_executable(app main.cpp)
 target_link_libraries(app PRIVATE pybind11::embed)
 target_compile_definitions(app PRIVATE -DCUSTOM_SYS_PATH="${PYTHON_SIDE_PACKAGES}")
+
+if (WIN32) # Windows
+	add_custom_command(TARGET app PRE_BUILD
+	COMMAND ${CMAKE_COMMAND} -E copy_if_different
+		"C:/Program Files/Python38/python38.dll"
+		$<TARGET_FILE_DIR:app>)
+endif()
